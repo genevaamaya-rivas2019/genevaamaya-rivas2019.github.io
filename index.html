@@ -1,0 +1,203 @@
+<html>
+
+<head>
+  <title>Geneva Mows</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+<style>
+  #container {
+    width: 500px;
+    background: pink;
+    margin: 0 auto;
+    -webkit-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.20);
+    -o-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    -ms-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -o-border-radius: 20px;
+    -ms-border-radius: 20px;
+  }
+
+  #containerMess {
+    width: 500px;
+    background: pink;
+    margin: 0 auto;
+    -webkit-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.20);
+    -o-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    -ms-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -o-border-radius: 20px;
+    -ms-border-radius: 20px;
+    display: none;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  thead th {
+    height: 50px;
+    width: 150px;
+    text-align: center;
+  }
+
+  tbody tr {
+    height: 50px;
+    width: 50px;
+    text-align: center;
+  }
+
+  table {
+    background-color: antiquewhite;
+    margin: 0 auto;
+    -webkit-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.20);
+    -o-box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    -ms-box-shadow: 0px 15px 16.83px 0.17px rgba(10, 10, 10, 0.05);
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -o-border-radius: 20px;
+    -ms-border-radius: 20px;
+  }
+
+  .input {
+    width: 50%;
+  }
+
+  table tbody {
+    width: 100px;
+  }
+
+  table thead {
+    background-color: aqua;
+  }
+
+  .left {
+    position: relative;
+    left: -300px;
+  }
+
+  .right {
+    position: relative;
+    right: -300px;
+    top: -390px
+  }
+
+  #head {
+    background-color:white;
+    font-size: 60px
+  }
+
+  body {
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6ITrU9nYEVYfKrUTUzP9OFssxWxs31cUWetbcpnkzOj7FTWhAxQ);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+</style>
+
+<body>
+  <h1 id ="head">My MQTT Web App</h1>
+
+  <div id="container">
+    <h1>Broker</h1>
+    <center>
+      <div class="input">
+        <label for="Address">Address: </label><br>
+        <input name="address" id="inpAddress" class="form-control" value="ws://broker.hivemq.com:8000/mqtt">
+      </div><br>
+
+      <button id="btn-connect" class="btn btn-success save-btn">Connect</button>
+      <button id="btn-disconnect" class="btn btn-success save-btn">Disconnect</button><br><br>
+
+      <div class="input">
+        <label for="Status">Status: </label><br>
+        <input name="status" class="form-control" id="inpStatus" value=" " disabled="">
+      </div><br><br>
+
+      <button id="btn-messages" class="btn btn-success save-btn">Messages</button>
+      <button id="btn-hide" class="btn btn-success save-btn">Hide Messages</button>
+
+    </center>
+  </div>
+  <div id="containerMess">
+    <h1>Incoming Messages</h1>
+    <table class="table">
+      <thead>
+        <th>Topic</th>
+        <th>Payload</th>
+        <th>Time Stamp</th>
+      </thead>
+      <tbody id="messageBody">
+
+      </tbody>
+    </table>
+  </div>
+  <div id="container" class="left">
+    <h1>Publish</h1>
+    <center>
+      <div class="input">
+        <label for="pubTopic">Topic: </label><br>
+        <input name="topic" class="form-control" id="pubTopic">
+      </div><br>
+
+      <div class="input">
+        <label for="pubPayload">Payload: </label><br>
+        <input name="payload" class="form-control" id="pubPayload">
+      </div><br>
+
+      <button id="btn-publish" class="btn btn-success save-btn">Publish</button><br><br>
+    </center>
+
+    <h1>History</h1>
+    <table class="tableP">
+      <thead>
+        <th>Topic</th>
+        <th>Payload</th>
+        <th>Time Stamp</th>
+      </thead>
+      <tbody id="publishBody">
+
+      </tbody>
+    </table>
+  </div>
+  <div id="container" class="right">
+    <h1>Subscribe</h1>
+    <center>
+      <div class="input">
+        <label for="subTopic">Topic: </label><br>
+        <input name="subsTopic" class="form-control" id="subTopic">
+      </div><br>
+
+      <button id="btn-subscribe" class="btn btn-success save-btn">Subscribe</button>
+      <button id="btn-unsubscribe" class="btn btn-success save-btn">Unsubscribe</button><br><br>
+    </center>
+
+    <h1>History</h1>
+    <table class="tableS">
+      <thead>
+        <th>Topic</th>
+        <th>Time Stamp</th>
+      </thead>
+      <tbody id="subscribeBody">
+
+      </tbody>
+    </table>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+</body>
+<script src="scripts/browserMqtt.js"></script>
+<script src="scripts/controller.js"></script>
+
+</html>

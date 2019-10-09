@@ -1,0 +1,29 @@
+{
+    "name": "geneva-mqtt-fan-switch",
+    "version": "1.0.0",
+    "description": "https://mqtt-express-node-geneva.herokuapp.com/\r https://git.heroku.com/mqtt-express-node-geneva.git",
+    "main": "index.js",
+    "dependencies": {
+        "express": "^4.17.1"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/genevaamaya-rivas2019/geneva-mqtt-fan-switch.git"
+    },
+    "keywords": [
+        "node"
+    ],
+    "author": "Geneva Rivas",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/genevaamaya-rivas2019/geneva-mqtt-fan-switch/issues"
+    },
+    "homepage": "https://github.com/genevaamaya-rivas2019/geneva-mqtt-fan-switch#readme",
+    "engines": {
+        "node": "10.15"
+    }
+}
